@@ -5,8 +5,22 @@ public class Main {
         String inputFile = "Input.txt";
         String outputFile = "Output.txt";
 
-        String startString = "('";
-        String endString = "'),";
+        String startBlock = """
+                INSERT INTO CATEGORY(?, ?)
+                VALUES
+                """;
+
+        String contentStart = "(";
+        String contentSeparator = ",";
+        String contentValue02 = "5";
+        String contentEnd = "),";
+
+        String endBlock = ";";
+
+
+
+
+
 
 
         try (
@@ -16,7 +30,7 @@ public class Main {
 
             String line;
             while ((line = reader.readLine()) != null) {
-                String formattedLine =  startString + line + endString;
+                String formattedLine =  startBlock + contentStart + line + contentSeparator + contentEnd + endBlock;
                 writer.write(formattedLine);
                 writer.newLine();
             }
