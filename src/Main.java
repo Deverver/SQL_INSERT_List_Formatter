@@ -19,21 +19,20 @@ public class Main {
 
 
 
-
-
-
-
         try (
                 BufferedReader reader = new BufferedReader(new FileReader(inputFile));
                 BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))
         ) {
+            writer.write(startBlock);
 
             String line;
             while ((line = reader.readLine()) != null) {
-                String formattedLine =  startBlock + contentStart + line + contentSeparator + contentEnd + endBlock;
+                String formattedLine =  contentStart + line + contentSeparator + contentValue02+ contentEnd;
                 writer.write(formattedLine);
                 writer.newLine();
             }
+
+            writer.write(endBlock);
 
             System.out.println("Done writing formatted lines to " + outputFile);
         } catch (IOException e) {
